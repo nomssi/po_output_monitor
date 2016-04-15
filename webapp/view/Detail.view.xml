@@ -5,8 +5,8 @@
 		<semantic:content>
 			<ObjectHeader id="objectHeader" title="Purchasing Document {DocumentNumber}" numberUnit="{PurchasingGroup}">
 			<attributes>
-			    <ObjectAttribute text="{Vendor}" active="true" id="Vendor_attribute" title="Vendor"/>
-			    <ObjectAttribute text="{DeliveryDate}" active="true" id="DlvDate_attribute" title="Delivery Date"/>
+			    <ObjectAttribute text="{Vendor} {ToVendor/Name1}" active="true" id="Vendor_attribute" title="Vendor"/>
+			    <ObjectAttribute text="{ path:'DeliveryDate', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateFormatter' }" active="true" id="DlvDate_attribute" title="Delivery Date"/>
 			</attributes>
 			</ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">

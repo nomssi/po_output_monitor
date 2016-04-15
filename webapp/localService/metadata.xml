@@ -49,7 +49,7 @@
 					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Created on" sap:creatable="false"
 					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
-                <Property Name="DeliveryDate" Type="Edm.Date" Nullable="false" sap:label="Dlv.Date" sap:creatable="false"
+                <Property Name="DeliveryDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Dlv.Date" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LogicalSystem" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="System" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>

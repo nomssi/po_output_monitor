@@ -17,15 +17,11 @@ sap.ui.define([], function() {
 			return parseFloat(sValue).toFixed(2);
 		},
 
-		fnDateConstant        : function(oValue) {
-			return "2017-10-10";
-		},
-		
 		fnDateFormatter: function(oValue) {
 			if (oValue === undefined || oValue === "") {
 				return "";
 			}
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "yyyy/MM/dd" });
+			var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ style: "medium" });
 			return oDateFormat.format(oValue);
 		},
 		
