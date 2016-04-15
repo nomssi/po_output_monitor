@@ -1,0 +1,60 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="poom.controller.Detail">
+
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="Purchasing Document {DocumentNumber}" numberUnit="{PurchasingGroup}">
+			<attributes>
+			    <ObjectAttribute text="{Vendor}" active="true" id="Vendor_attribute" title="Vendor"/>
+			    <ObjectAttribute text="{DeliveryDate}" active="true" id="DlvDate_attribute" title="Delivery Date"/>
+			</attributes>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://order-status" tooltip="{i18n>detailIconTabBarInfo}" text="Messages">
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://customer-and-contacts" tooltip="{i18n>detailIconTabBarAttachments}" text="Vendor">
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<Table id="lineItemsList" width="auto" items="{ToMessages}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+				<headerToolbar>
+					<Toolbar id="lineItemsToolbar">
+						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>detailLineItemTableIDColumn}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier title="{MessageType} {Partner} {Status}" text="{Channel} {Language} {CreatedBy} {path:'CreationDateTime', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateTimeFormatter'}"/>
+							<ObjectNumber/>
+							<ObjectIdentifier text="{path:'ProcessingDateTime', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateTimeFormatter'}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+
+	</semantic:DetailPage>
+
+</mvc:View>

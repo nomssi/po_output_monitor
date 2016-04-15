@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="PurchOrder_Output_Monitor" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Messages" sap:label="Message" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ObjectKey"/>
+                </Key>
+                <Property Name="MessageType" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Type" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjectKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="VarKey" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="Channel" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="ProcessingDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Manual" Type="Edm.String" Nullable="false" MaxLength="1" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <NavigationProperty Name="ToPurchOrder" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Messages"
+					FromRole="ToRole_FK_PurchaseOrder_Messages" ToRole="FromRole_FK_PurchaseOrder_Messages"/>
+            </EntityType>
+            <EntityType Name="PurchaseOrders" sap:label="Purchase Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DocumentNumber"/>
+                </Key>
+                <Property Name="DocumentNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Company" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Vendor" sap:creatable="false" sap:updatable="false"
+					sap:sortable="true" sap:filterable="true"/>
+                <Property Name="PurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="PurchOrg" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="PurchGroup" sap:creatable="false"
+					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Created on" sap:creatable="false"
+					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
+                <Property Name="DeliveryDate" Type="Edm.Date" Nullable="false" sap:label="Dlv.Date" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LogicalSystem" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="System" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToMessages" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Messages"
+					FromRole="FromRole_FK_PurchaseOrder_Messages" ToRole="ToRole_FK_PurchaseOrder_Messages" sap:label="FK_PO_Messages"/>
+                <NavigationProperty Name="ToVendor" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Vendor" FromRole="FromRole_FK_PurchaseOrder_Vendor"
+					ToRole="ToRole_FK_PurchaseOrder_Vendor" sap:label="FK_PO_Vendor"/>
+            </EntityType>
+            <EntityType Name="Vendor" sap:label="Vendor" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Vendor" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Name1" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Contacts" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Contact" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToPurchOrder" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Vendor" FromRole="ToRole_FK_PurchaseOrder_Vendor"
+					ToRole="FromRole_FK_PurchaseOrder_Vendor" sap:label="FK_PO_Vendor"/>
+                <NavigationProperty Name="ToContact" Relationship="PurchOrder_Output_Monitor.FK_Vendor_Partner" FromRole="FromRole_FK_Vendor_Partner"
+					ToRole="ToRole_FK_Vendor_Partner" sap:label="FK_Vendor_Partner"/>
+            </EntityType>
+            <EntityType Name="BusinessPartner" sap:label="Contact" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Partner"/>
+                </Key>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="Fax" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+                <Property Name="eMail" Type="Edm.String" Nullable="false" MaxLength="100" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/>
+            </EntityType>
+            <Association Name="FK_PurchaseOrder_Vendor" sap:content-version="1" sap:label="FK_PO_Vendor">
+                <End Type="PurchOrder_Output_Monitor.PurchaseOrders" Multiplicity="1" Role="FromRole_FK_PurchaseOrder_Vendor"/>
+                <End Type="PurchOrder_Output_Monitor.Vendor" Multiplicity="1" Role="ToRole_FK_PurchaseOrder_Vendor"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_FK_PurchaseOrder_Vendor">
+                        <PropertyRef Name="DocumentNumber"/>
+                    </Principal>
+                    <Dependent Role="ToRole_FK_PurchaseOrder_Vendor">
+                        <PropertyRef Name="Partner"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FK_PurchaseOrder_Messages" sap:content-version="1" sap:label="FK_PO_Messages">
+                <End Type="PurchOrder_Output_Monitor.PurchaseOrders" Multiplicity="1" Role="FromRole_FK_PurchaseOrder_Messages"/>
+                <End Type="PurchOrder_Output_Monitor.Messages" Multiplicity="*" Role="ToRole_FK_PurchaseOrder_Messages"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_FK_PurchaseOrder_Messages">
+                        <PropertyRef Name="DocumentNumber"/>
+                    </Principal>
+                    <Dependent Role="ToRole_FK_PurchaseOrder_Messages">
+                        <PropertyRef Name="ObjectKey"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="FK_Vendor_Partner" sap:content-version="1" sap:label="FK_Vendor_Partner">
+                <End Type="PurchOrder_Output_Monitor.Vendor" Multiplicity="1" Role="FromRole_FK_Vendor_Partner"/>
+                <End Type="PurchOrder_Output_Monitor.BusinessPartner" Multiplicity="1" Role="ToRole_FK_Vendor_Partner"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_FK_Vendor_Partner">
+                        <PropertyRef Name="Partner"/>
+                    </Principal>
+                    <Dependent Role="ToRole_FK_Vendor_Partner">
+                        <PropertyRef Name="Partner"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="PurchOrder_Output_Monitor_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="MessagesSet" EntityType="PurchOrder_Output_Monitor.Messages" sap:label="Messages" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:addressable="true" sap:content-version="1"/>
+                <EntitySet Name="PurchaseOrdersSet" EntityType="PurchOrder_Output_Monitor.PurchaseOrders" sap:label="Purchase Orders" sap:content-version="1"/>
+                <EntitySet Name="VendorSet" EntityType="PurchOrder_Output_Monitor.Vendor" sap:label="Vendors" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:pageable="false" sap:addressable="true" sap:content-version="1"/>
+                <EntitySet Name="BussinesPartnerSet" EntityType="PurchOrder_Output_Monitor.BusinessPartner" sap:label="Contacts" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="true" sap:content-version="1"/>
+                <AssociationSet Name="FK_PurchaseOrder_Vendor_AssocSet" Association="PurchOrder_Output_Monitor.FK_PurchaseOrder_Vendor" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PurchaseOrdersSet" Role="FromRole_FK_PurchaseOrder_Vendor"/>
+                    <End EntitySet="VendorSet" Role="ToRole_FK_PurchaseOrder_Vendor"/>
+                </AssociationSet>
+                <AssociationSet Name="FK_Vendor_Partner_AssocSet" Association="PurchOrder_Output_Monitor.FK_Vendor_Partner" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="VendorSet" Role="FromRole_FK_Vendor_Partner"/>
+                    <End EntitySet="BussinesPartnerSet" Role="ToRole_FK_Vendor_Partner"/>
+                </AssociationSet>
+                <AssociationSet Name="FK_PurchaseOrder_Messages_AssocSet" Association="PurchOrder_Output_Monitor.FK_PurchaseOrder_Messages" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PurchaseOrdersSet" Role="FromRole_FK_PurchaseOrder_Messages"/>
+                    <End EntitySet="MessagesSet" Role="ToRole_FK_PurchaseOrder_Messages"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

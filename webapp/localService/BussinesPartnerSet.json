@@ -1,0 +1,13 @@
+[{
+	"Partner": "0000012345",
+	"Name": "John Doe",
+	"Phone": "+49 232 455000",
+	"Fax": "+49 232 455000",
+	"eMail": "john.doe@pallurina.com"
+}, {
+	"Partner": "0000025222",
+	"Name": "Lisa Lee",
+	"Phone": "+01 4588888823",
+	"Fax": "+01 4588888825",
+	"eMail": "lisa.lee@bmx.com"
+}]
