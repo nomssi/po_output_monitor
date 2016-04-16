@@ -10,6 +10,10 @@ sap.ui.define([
 
 			formatter: formatter,
 
+            onVendorClick : function () {
+              sap.m.MessageToast.show("Vendor Button Clicked");
+            },
+            
 			/* =========================================================== */
 			/* lifecycle methods                                           */
 			/* =========================================================== */

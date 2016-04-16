@@ -21,7 +21,7 @@ sap.ui.define([], function() {
 			if (oValue === undefined || oValue === "") {
 				return "";
 			}
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ style: "medium" });
+			var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ style: "short" });
 			return oDateFormat.format(oValue);
 		},
 		

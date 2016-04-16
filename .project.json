@@ -37,7 +37,7 @@
   },
   "dataBinding": {
     "/webapp/view/Detail.view.xml": {
-      "entitySet": ""
+      "entitySet": "MessagesSet"
     }
   }
 }

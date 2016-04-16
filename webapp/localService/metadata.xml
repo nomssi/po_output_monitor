@@ -41,7 +41,7 @@
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Company" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company" sap:creatable="false" sap:updatable="false"
 					sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Vendor" sap:creatable="false" sap:updatable="false"
+                <Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="OrderingAddress" sap:creatable="false" sap:updatable="false"
 					sap:sortable="true" sap:filterable="true"/>
                 <Property Name="PurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="PurchOrg" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>

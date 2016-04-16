@@ -1,23 +1,20 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" controllerName="poom.controller.Detail">
-
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
-
+	<semantic:DetailPage id="page" navButtonPress="onVendorClick" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="Purchasing Document {DocumentNumber}" numberUnit="{PurchasingGroup}">
-			<attributes>
-			    <ObjectAttribute text="{Vendor} {ToVendor/Name1}" active="true" id="Vendor_attribute" title="Vendor"/>
-			    <ObjectAttribute text="{ path:'DeliveryDate', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateFormatter' }" active="true" id="DlvDate_attribute" title="Delivery Date"/>
-			</attributes>
+			<ObjectHeader id="objectHeader" title="Purchasing Document" number="{DocumentNumber}">
+				<attributes>
+					<ObjectAttribute text="{Vendor} { path: '/VendorSet({Vendor})/Name1', parameters: {expand : 'ToVendor'} }" active="true" id="Vendor_attribute" title="{i18n>vendorLabel}"/>
+					<ObjectAttribute text="{Company} {PurchasingOrganization} {PurchasingGroup}" id="OrgUnit_attribute" title="Org. Unit"/>
+					<ObjectAttribute text="{ path:'DeliveryDate', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateFormatter' }" id="DlvDate_attribute" title="Delivery Date"/>
+				</attributes>
 			</ObjectHeader>
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" expand="" select="">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://order-status" tooltip="{i18n>detailIconTabBarInfo}" text="Messages">
-					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://customer-and-contacts" tooltip="{i18n>detailIconTabBarAttachments}" text="Vendor">
-					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://order-status" tooltip="{i18n>detailIconTabBarInfo}" text="Messages"/>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://customer-and-contacts" tooltip="{i18n>detailIconTabBarAttachments}" text="Vendor"/>
 				</items>
 			</IconTabBar>
-			<Table id="lineItemsList" width="auto" items="{ToMessages}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+			<Table id="lineItemsList" items="{ToMessages}" width="auto" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
@@ -42,19 +39,14 @@
 				</items>
 			</Table>
 		</semantic:content>
-
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
-
 		<semantic:shareInJamAction>
 			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
 		</semantic:shareInJamAction>
-
 		<semantic:saveAsTileAction>
 			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
 		</semantic:saveAsTileAction>
-
 	</semantic:DetailPage>
-
 </mvc:View>
