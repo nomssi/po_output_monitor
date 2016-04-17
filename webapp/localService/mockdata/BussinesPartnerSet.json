@@ -3,11 +3,17 @@
 	"Name": "John Doe",
 	"Phone": "+49 232 455000",
 	"Fax": "+49 232 455000",
-	"eMail": "john.doe@pallurina.com"
+	"eMail": "john.doe@pallurina.com",
+	"Web": "www.pallurina.com",
+	"FormattedAddress": "23 Pall Street, 2396 Paluso",
+	"FormattedContactName": "Mr. John Doe"
 }, {
 	"Partner": "0000025222",
 	"Name": "Lisa Lee",
 	"Phone": "+01 4588888823",
 	"Fax": "+01 4588888825",
-	"eMail": "lisa.lee@bmx.com"
+	"eMail": "lisa.lee@bmx.com",
+	"Web": "www.bmx.com",
+	"FormattedContactName": "Ms. Lisa Lee",
+	"FormattedAddress": "42 Mind Street, 8883 Bortington"
 }]

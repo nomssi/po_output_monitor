@@ -1,6 +1,7 @@
 {
   "projectType": [
     "sap.watt.uitools.ide.fiori",
+    "sap.watt.uitools.ide.web",
     "com.watt.common.builder.sapui5clientbuild"
   ],
   "build": {
@@ -22,8 +23,8 @@
     }
   ],
   "mockpreview": {
-    "mockUri": "",
-    "metadataFilePath": "",
+    "mockUri": "/here/goes/your/serviceurl/",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": true,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
@@ -39,5 +40,20 @@
     "/webapp/view/Detail.view.xml": {
       "entitySet": "MessagesSet"
     }
+  },
+  "hybrid.facadeconfig": {
+    "bMockLocation": true,
+    "position": {
+      "latitude": 50.94460285510836,
+      "longitude": 6.9962310791015625,
+      "altitude": 0,
+      "accuracy": 0,
+      "altitudeAccuracy": 0,
+      "heading": 0,
+      "velocity": 0
+    },
+    "locations": [],
+    "accelerometer": {},
+    "compass": {}
   }
 }

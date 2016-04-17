@@ -14,21 +14,21 @@
 					sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ObjectKey" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="VarKey" sap:creatable="false" sap:updatable="false"
 					sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false"
+                <Property Name="CreationDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Created on" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Partner" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
-                <Property Name="Channel" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                <Property Name="Channel" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Channel" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
-                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
-                <Property Name="ProcessingDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:creatable="false"
+                <Property Name="ProcessingDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Processed on" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
-                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:creatable="false" sap:updatable="false"
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="CreatedBy" sap:creatable="false" sap:updatable="false"
 					sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Manual" Type="Edm.String" Nullable="false" MaxLength="1" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+                <Property Name="Manual" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="man." sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
                 <NavigationProperty Name="ToPurchOrder" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Messages"
 					FromRole="ToRole_FK_PurchaseOrder_Messages" ToRole="FromRole_FK_PurchaseOrder_Messages"/>
@@ -38,19 +38,19 @@
                     <PropertyRef Name="DocumentNumber"/>
                 </Key>
                 <Property Name="DocumentNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Document" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="true" sap:filterable="false"/>
                 <Property Name="Company" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company" sap:creatable="false" sap:updatable="false"
-					sap:sortable="false" sap:filterable="false"/>
+					sap:sortable="true" sap:filterable="true"/>
                 <Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="OrderingAddress" sap:creatable="false" sap:updatable="false"
 					sap:sortable="true" sap:filterable="true"/>
                 <Property Name="PurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="PurchOrg" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
                 <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="PurchGroup" sap:creatable="false"
 					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
                 <Property Name="CreationDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Created on" sap:creatable="false"
 					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
                 <Property Name="DeliveryDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Dlv.Date" sap:creatable="false"
-					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+					sap:updatable="false" sap:sortable="true" sap:filterable="true"/>
                 <Property Name="LogicalSystem" Type="Edm.String" Nullable="false" MaxLength="7" sap:label="System" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <NavigationProperty Name="ToMessages" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Messages"
@@ -79,14 +79,14 @@
                 </Key>
                 <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false"
 					sap:filterable="false"/>
-                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="30" sap:creatable="false" sap:updatable="false" sap:sortable="false"
-					sap:filterable="false"/>
-                <Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
-					sap:filterable="false"/>
-                <Property Name="Fax" Type="Edm.String" Nullable="false" MaxLength="20" sap:creatable="false" sap:updatable="false" sap:sortable="false"
-					sap:filterable="false"/>
-                <Property Name="eMail" Type="Edm.String" Nullable="false" MaxLength="100" sap:creatable="false" sap:updatable="false" sap:sortable="false"
-					sap:filterable="false"/>
+				<Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="80" m:FC_TargetPath="SyndicationTitle" m:FC_KeepInContent="true" sap:label="Supplier" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Web" Type="Edm.String" Nullable="false" sap:label="URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="url"/>
+				<Property Name="FormattedAddress" Type="Edm.String" Nullable="false" MaxLength="164" sap:label="Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="FormattedContactName" Type="Edm.String" Nullable="false" MaxLength="88" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="Phone" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Contact Person Tel" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="tel"/>
+				<Property Name="Fax" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Contact Person Fax" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="tel"/>
+				<Property Name="eMail" Type="Edm.String" Nullable="false" sap:label="Contact Person Mail" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="email"/>
+				<Property Name="ChangedAt" Type="Edm.DateTime" Nullable="false" Precision="7" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="true" sap:label="Changed at" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <Association Name="FK_PurchaseOrder_Vendor" sap:content-version="1" sap:label="FK_PO_Vendor">
                 <End Type="PurchOrder_Output_Monitor.PurchaseOrders" Multiplicity="1" Role="FromRole_FK_PurchaseOrder_Vendor"/>

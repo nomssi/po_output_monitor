@@ -1,4 +1,6 @@
-sap.ui.define([], function() {
+sap.ui.define([
+	"sap/ui/core/format/DateFormat"
+], function(DateFormat) {
 	"use strict";
 
 	return {
@@ -17,11 +19,21 @@ sap.ui.define([], function() {
 			return parseFloat(sValue).toFixed(2);
 		},
 
+	   fnDateAgoFormatter: DateFormat.getDateInstance({
+			style: "medium",
+			strictParsing: true,
+			relative: true
+		}),
+		
+		fnDeliveryDateFormatter: DateFormat.getDateInstance({
+			style: "medium"
+		}),
+		
 		fnDateFormatter: function(oValue) {
 			if (oValue === undefined || oValue === "") {
 				return "";
 			}
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateInstance({ style: "short" });
+			var oDateFormat = DateFormat.getDateInstance({ style: "short", strictParsing: true,	relative: true});
 			return oDateFormat.format(oValue);
 		},
 		
@@ -29,9 +41,10 @@ sap.ui.define([], function() {
 			if (oValue === undefined || oValue === "") {
 				return "";
 			}
-			var oDateFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({ pattern: "yyyy/MM/dd" });
+			var oDateFormat = DateFormat.getDateTimeInstance({ pattern: "yyyy/MM/dd" });
 			return oDateFormat.format(oValue);
 		}
+
 	};
 
 });
