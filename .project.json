@@ -55,5 +55,23 @@
     "locations": [],
     "accelerometer": {},
     "compass": {}
+  },
+  "basevalidator": {
+    "validators": [
+      {
+        "validatorID": "fioriJsValidator",
+        "configuration": {
+          "rules": {},
+          "additionalRuleMetadata": {}
+        }
+      },
+      {
+        "validatorID": "fioriXmlAnalysis"
+      }
+    ],
+    "services": {
+      "js": "fioriJsValidator",
+      "xml": "fioriXmlAnalysis"
+    }
   }
 }

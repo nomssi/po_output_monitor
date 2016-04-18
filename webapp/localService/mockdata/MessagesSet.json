@@ -101,7 +101,8 @@
 	"ProcessingDateTime": "/Date(1460498400000)/",
 	"Language": "DE",
 	"CreatedBy": "JoePurch",
-	"ObjectKey": "0611343429"
+	"ObjectKey": "0611343429",
+	"Manual": " "
 }, {
 	"MessageType": "NEU6",
 	"CreationDateTime": "/Date(1460325600000)/",
@@ -110,5 +111,6 @@
 	"Status": "in process",
 	"Language": "FR",
 	"CreatedBy": "JoePurch",
-	"ObjectKey": "0611343432"
+	"ObjectKey": "0611343432",
+	"Manual": " "
 }]
