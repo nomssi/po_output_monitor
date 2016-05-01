@@ -32,6 +32,8 @@
 					sap:filterable="false"/>
                 <NavigationProperty Name="ToPurchOrder" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Messages"
 					FromRole="ToRole_FK_PurchaseOrder_Messages" ToRole="FromRole_FK_PurchaseOrder_Messages"/>
+                <NavigationProperty Name="ToItems" Relationship="PurchOrder_Output_Monitor.FK_Messages_Items" FromRole="FromRole_FK_Messages"
+					ToRole="ToRole_FK_PurchaseOrder_Items" sap:label="FK_Message_PO_Item"/>                       
             </EntityType>
             <EntityType Name="PurchaseOrders" sap:label="Purchase Order" sap:content-version="1">
                 <Key>
@@ -42,6 +44,8 @@
                 <Property Name="Company" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company" sap:creatable="false" sap:updatable="false"
 					sap:sortable="true" sap:filterable="true"/>
                 <Property Name="Vendor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="OrderingAddress" sap:creatable="false" sap:updatable="false"
+					sap:sortable="true" sap:filterable="true"/>
+                <Property Name="VendorName" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Supplier Name" sap:creatable="false" sap:updatable="false"
 					sap:sortable="true" sap:filterable="true"/>
                 <Property Name="PurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="PurchOrg" sap:creatable="false"
 					sap:updatable="false" sap:sortable="false" sap:filterable="true"/>
@@ -57,7 +61,25 @@
 					FromRole="FromRole_FK_PurchaseOrder_Messages" ToRole="ToRole_FK_PurchaseOrder_Messages" sap:label="FK_PO_Messages"/>
                 <NavigationProperty Name="ToVendor" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Vendor" FromRole="FromRole_FK_PurchaseOrder_Vendor"
 					ToRole="ToRole_FK_PurchaseOrder_Vendor" sap:label="FK_PO_Vendor"/>
+                <NavigationProperty Name="ToItems" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Items" FromRole="FromRole_FK_PurchaseOrder_Header"
+					ToRole="ToRole_FK_PurchaseOrder_Items" sap:label="FK_PO_Item"/>                    
             </EntityType>
+            <EntityType Name="PurchaseOrderItems" sap:label="PO Items" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="DocumentNumber"/>
+					<PropertyRef Name="POItem"/>
+				</Key>
+				<Property Name="DocumentNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="PO Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="POItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="PO Item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="ShortText" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="NetPrice" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:unit="PriceCurrency" sap:label="Price" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="PriceCurrency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+				<Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="QuantityUnit" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<Property Name="QuantityUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+				<Property Name="DeliveryDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Delivery Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+				<NavigationProperty Name="ToHeader" Relationship="PurchOrder_Output_Monitor.FK_PurchaseOrder_Items" FromRole="ToRole_FK_PurchaseOrder_Items"
+					ToRole="FromRole_FK_PurchaseOrder_Header" sap:label="FK_PO_Header"/>  
+			</EntityType>
             <EntityType Name="Vendor" sap:label="Vendor" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="Partner"/>
@@ -88,6 +110,30 @@
 				<Property Name="eMail" Type="Edm.String" Nullable="false" sap:label="Contact Person Mail" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="email"/>
 				<Property Name="ChangedAt" Type="Edm.DateTime" Nullable="false" Precision="7" m:FC_TargetPath="SyndicationUpdated" m:FC_KeepInContent="true" sap:label="Changed at" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
+            <Association Name="FK_Messages_Items" sap:content-version="1" sap:label="FK_Message_Item">
+                <End Type="PurchOrder_Output_Monitor.Messages" Multiplicity="1" Role="FromRole_FK_Messages"/>
+                <End Type="PurchOrder_Output_Monitor.PurchaseOrderItems" Multiplicity="*" Role="ToRole_FK_PurchaseOrder_Items"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_FK_Messages">
+                        <PropertyRef Name="ObjectKey"/>
+                    </Principal>
+                    <Dependent Role="ToRole_FK_PurchaseOrder_Items">
+                        <PropertyRef Name="DocumentNumber"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+                        <Association Name="FK_PurchaseOrder_Items" sap:content-version="1" sap:label="FK_PO_Item">
+                <End Type="PurchOrder_Output_Monitor.PurchaseOrders" Multiplicity="1" Role="FromRole_FK_PurchaseOrder_Header"/>
+                <End Type="PurchOrder_Output_Monitor.PurchaseOrderItems" Multiplicity="*" Role="ToRole_FK_PurchaseOrder_Items"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_FK_PurchaseOrder_Header">
+                        <PropertyRef Name="DocumentNumber"/>
+                    </Principal>
+                    <Dependent Role="ToRole_FK_PurchaseOrder_Items">
+                        <PropertyRef Name="DocumentNumber"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
             <Association Name="FK_PurchaseOrder_Vendor" sap:content-version="1" sap:label="FK_PO_Vendor">
                 <End Type="PurchOrder_Output_Monitor.PurchaseOrders" Multiplicity="1" Role="FromRole_FK_PurchaseOrder_Vendor"/>
                 <End Type="PurchOrder_Output_Monitor.Vendor" Multiplicity="1" Role="ToRole_FK_PurchaseOrder_Vendor"/>
@@ -128,6 +174,7 @@
                 <EntitySet Name="MessagesSet" EntityType="PurchOrder_Output_Monitor.Messages" sap:label="Messages" sap:creatable="false" sap:updatable="false"
 					sap:deletable="false" sap:pageable="false" sap:addressable="true" sap:content-version="1"/>
                 <EntitySet Name="PurchaseOrdersSet" EntityType="PurchOrder_Output_Monitor.PurchaseOrders" sap:label="Purchase Orders" sap:content-version="1"/>
+                <EntitySet Name="PurchaseOrderItemsSet" EntityType="PurchOrder_Output_Monitor.PurchaseOrderItems" sap:label="Purchase Order Items" sap:content-version="1"/>
                 <EntitySet Name="VendorSet" EntityType="PurchOrder_Output_Monitor.Vendor" sap:label="Vendors" sap:creatable="false" sap:updatable="false"
 					sap:deletable="false" sap:pageable="false" sap:addressable="true" sap:content-version="1"/>
                 <EntitySet Name="BussinesPartnerSet" EntityType="PurchOrder_Output_Monitor.BusinessPartner" sap:label="Contacts" sap:creatable="false"
@@ -147,6 +194,16 @@
                     <End EntitySet="PurchaseOrdersSet" Role="FromRole_FK_PurchaseOrder_Messages"/>
                     <End EntitySet="MessagesSet" Role="ToRole_FK_PurchaseOrder_Messages"/>
                 </AssociationSet>
+                <AssociationSet Name="FK_PurchaseOrder_Items_AssocSet" Association="PurchOrder_Output_Monitor.FK_PurchaseOrder_Items" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PurchaseOrdersSet" Role="FromRole_FK_PurchaseOrder_Header"/>
+                    <End EntitySet="PurchaseOrderItemsSet" Role="ToRole_FK_PurchaseOrder_Items"/>
+                </AssociationSet>  
+                <AssociationSet Name="FK_Messages_Items_AssocSet" Association="PurchOrder_Output_Monitor.FK_Messages_Items" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="MessagesSet" Role="FromRole_FK_Messages"/>
+                    <End EntitySet="PurchaseOrderItemsSet" Role="ToRole_FK_PurchaseOrder_Items"/>
+                </AssociationSet>  
             </EntityContainer>
         </Schema>
     </edmx:DataServices>

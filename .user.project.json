@@ -3,7 +3,7 @@
     {
       "filePath": "/po_output_monitor/webapp/test/testFLPService.html",
       "previewMode": 1,
-      "dataMode": 1,
+      "dataMode": 0,
       "workspace": "withoutWorkspace",
       "urlParameters": [
         {
@@ -26,6 +26,23 @@
         "id": 1978926,
         "runnerId": "webapprunner",
         "displayName": "Run with MockServer"
+      }
+    },
+    {
+      "filePath": "/po_output_monitor/webapp/test/testFLP.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "id": 7233931,
+        "runnerId": "webapprunner",
+        "displayName": "Run testFLP.html"
       }
     },
     {

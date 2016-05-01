@@ -19,29 +19,45 @@ sap.ui.define([
 			return parseFloat(sValue).toFixed(2);
 		},
 
-	   fnDateAgoFormatter: DateFormat.getDateInstance({
-			style: "medium",
-			strictParsing: true,
-			relative: true
-		}),
-		
-		fnDeliveryDateFormatter: DateFormat.getDateInstance({
-			style: "medium"
-		}),
-		
+		fnDateAgoFormatter: function(oValue) {
+			if (oValue === undefined || oValue === "") {
+				return "";
+			}		    
+			var oDateFormat = DateFormat.getDateInstance({
+				style: "medium",
+				strictParsing: true,
+				relative: true
+			});
+			return oDateFormat.format(oValue);
+	    },
+
+		fnDeliveryDateFormatter: function(oValue) {
+			if (oValue === undefined || oValue === "") {
+				return "";
+			}		    
+			var oDateFormat = DateFormat.getDateInstance({ style: "medium" });
+			return oDateFormat.format(oValue);
+		},
+
 		fnDateFormatter: function(oValue) {
 			if (oValue === undefined || oValue === "") {
 				return "";
 			}
-			var oDateFormat = DateFormat.getDateInstance({ style: "short", strictParsing: true,	relative: true});
+			var oDateFormat = DateFormat.getDateInstance({
+				style: "short",
+				strictParsing: true,
+				relative: true
+			});
 			return oDateFormat.format(oValue);
 		},
-		
+
 		fnDateTimeFormatter: function(oValue) {
 			if (oValue === undefined || oValue === "") {
 				return "";
 			}
-			var oDateFormat = DateFormat.getDateTimeInstance({ pattern: "yyyy/MM/dd" });
+			var oDateFormat = DateFormat.getDateTimeInstance({
+				pattern: "yyyy/MM/dd"
+			});
 			return oDateFormat.format(oValue);
 		}
 

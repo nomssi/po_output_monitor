@@ -3,17 +3,30 @@
 		<semantic:content>
 			<ObjectHeader id="objectHeader" title="Purchasing Document" number="{DocumentNumber}">
 				<attributes>
-					<ObjectAttribute text="{Vendor} {/Messages/Vendor/Name1}" active="true" id="Vendor_attribute" title="{i18n>vendorLabel}"/>
-					<ObjectAttribute text="{path: 'ToVendor/Contacts'}" active="false" id="VendorContact" title="Contact"/>
+					<ObjectAttribute text="{Vendor} {VendorName}" active="false" id="Vendor_attribute" title="{i18n>vendorLabel}"/>
 					<ObjectAttribute text="{Company} {PurchasingOrganization} {PurchasingGroup}" id="OrgUnit_attribute" title="Org. Unit"/>
-					<ObjectAttribute text="{ path:'DeliveryDate', type: 'sap.ui.model.type.Date', formatter:'.fnDeliveryDateFormatter' }" id="DlvDate_attribute" title="Delivery Date"/>
+					<ObjectAttribute text="{path:'DeliveryDate', type: 'sap.ui.model.type.Date', formatter:'.fnDateFormatter'}" id="DlvDate_attribute" title="Delivery Date"/>
 				</attributes>
 			</ObjectHeader>
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" expand="" select="">
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" >
 				<items>
 					<IconTabFilter id="iconTabBarMessages" icon="sap-icon://order-status" tooltip="{i18n>detailIconTabBarInfo}" text="Messages"/>
 					<IconTabFilter id="iconTabBarVendor" icon="sap-icon://list" tooltip="{i18n>detailIconTabBarAttachments}" text="Items">
-						<content/>
+						<content>
+							<List noDataText="No PO items found" id="POItemsList" items="{ToItems}">
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text id="PoItemCell" text="{POItem}" class="sapMTableContentMargin"/>
+											<Text id="ShortTextCell" text="{ShortText}" class="sapMTableContentMargin"/>
+											<Text id="DeliveryDateCell" text="{path:'DeliveryDate', type: 'sap.ui.model.type.Date', formatter:'.fnDateFormatter'}" class="sapMTableContentMargin"/>
+											<Text id="QuantityCell" text="{Quantity}" class="sapMTableContentMargin"/>
+											<Text id="QuantityUnitCell" text="{QuantityUnit}" class="sapMTableContentMargin"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</List>
+						</content>
 					</IconTabFilter>
 					<IconTabFilter text="Help!" icon="sap-icon://sys-help-2" iconColor="Critical" id="iconTabBarIncident">
 						<content>
@@ -85,8 +98,8 @@
 					<ColumnListItem>
 						<cells>
 							<Text id="MessageTypeCell" text="{MessageType}" class="sapMTableContentMargin"/>
-							<Text id="PartnerCell" text="{Partner}" class="sapMTableContentMargin"/>								
-							<Text id="CreationDateCell" text="{path:'CreationDateTime', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateAgoFormatter'}" class="sapMTableContentMargin"/>
+							<Text id="PartnerCell" text="{Partner}" class="sapMTableContentMargin"/>
+							<Text id="CreationDateCell" text="{path:'CreationDateTime', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateTimeFormatter'}" class="sapMTableContentMargin"/>
 							<Text id="StatusCell" text="{Status}" class="sapMTableContentMargin"/>
 							<Text id="ProcessingDateCell" text="{path:'ProcessingDateTime', type: 'sap.ui.model.type.DateTime', formatter:'.fnDateTimeFormatter'}" class="sapMTableContentMargin"/>
 							<Text id="LanguageCell" text="{Language}" class="sapMTableContentMargin"/>

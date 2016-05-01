@@ -6,7 +6,8 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1458601200000)/",
 	"DeliveryDate": "/Date(1460412000000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"PurchasingOrganization": "ID49",
 	"PurchasingGroup": "032",
@@ -15,7 +16,8 @@
 	"LogicalSystem": "IDVM100",
 	"Company": "2001",
 	"Vendor": "0000624711",
-	"DocumentNumber": "0611343361"
+	"DocumentNumber": "0611343361",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"PurchasingOrganization": "ID49",
 	"PurchasingGroup": "032",
@@ -24,7 +26,8 @@
 	"LogicalSystem": "IDVM100",
 	"Company": "2001",
 	"Vendor": "0000624711",
-	"DocumentNumber": "0611343372"
+	"DocumentNumber": "0611343372",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"DocumentNumber": "0611343377",
 	"Company": "2001",
@@ -33,7 +36,8 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1458687600000)/",
 	"DeliveryDate": "/Date(1459202400000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"DocumentNumber": "0611343385",
 	"Company": "2001",
@@ -42,7 +46,8 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1458687600000)/",
 	"DeliveryDate": "/Date(1459807200000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"DocumentNumber": "0611343423",
 	"Company": "2001",
@@ -51,7 +56,8 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1459720800000)/",
 	"DeliveryDate": "/Date(1459980000000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"DocumentNumber": "0611343426",
 	"Company": "2001",
@@ -60,7 +66,8 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1459720800000)/",
 	"DeliveryDate": "/Date(1460498400000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"DocumentNumber": "0611343429",
 	"Company": "2001",
@@ -69,7 +76,8 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1459893600000)/",
 	"DeliveryDate": "/Date(1461621600000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }, {
 	"DocumentNumber": "0611343432",
 	"Company": "2001",
@@ -78,5 +86,6 @@
 	"PurchasingGroup": "032",
 	"CreationDate": "/Date(1459893600000)/",
 	"DeliveryDate": "/Date(1461708000000)/",
-	"LogicalSystem": "IDVM100"
+	"LogicalSystem": "IDVM100",
+	"VendorName": "Pallurina GmbH"
 }]

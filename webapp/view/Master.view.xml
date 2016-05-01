@@ -22,7 +22,8 @@
 				<items>
 					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{DocumentNumber}" numberUnit="{PurchasingGroup}">
 					<attributes>
-					    <ObjectAttribute text="{ path:'DeliveryDate', type: 'sap.ui.model.type.Date', formatter:'.fnDeliveryDateFormatter' }" title="Due" id="PODueDate" active="false"/>
+					    <ObjectAttribute title="{VendorName}" id="POHeaderInfo" active="false"
+					      text="Due { path:'DeliveryDate', type: 'sap.ui.model.type.Date', formatter:'.fnDeliveryDateFormatter' }"/>
 					</attributes>
 					</ObjectListItem>
 				</items>

@@ -38,7 +38,7 @@
   },
   "dataBinding": {
     "/webapp/view/Detail.view.xml": {
-      "entitySet": "MessagesSet"
+      "entitySet": ""
     }
   },
   "hybrid.facadeconfig": {

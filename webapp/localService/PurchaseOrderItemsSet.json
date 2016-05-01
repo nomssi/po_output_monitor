@@ -1,0 +1,82 @@
+[{
+	"DocumentNumber": "0611343360",
+	"POItem": "00010",
+	"ShortText": "First Item",
+	"NetPrice": 10,
+	"PriceCurrency": "EUR",
+	"Quantity": 5,
+	"QuantityUnit": "KG",
+	"DeliveryDate": "/Date(1460412000000)/"
+}, {
+	"DocumentNumber": "0611343360",
+	"POItem": "00020",
+	"Quantity": "1",
+	"NetPrice": "956.00",
+	"QuantityUnit": "EA",
+	"DeliveryDate": "/Date(1425423600000)/",
+	"ShortText": "Notebook Basic 15",
+	"PriceCurrency": "USD"
+}, {
+	"DocumentNumber": "0611343360",
+	"POItem": "00030",
+	"Quantity": "2",
+	"NetPrice": "45.00",
+	"QuantityUnit": "EA",
+	"DeliveryDate": "/Date(1425423600000)/",
+	"ShortText": "Sound Booster",
+	"PriceCurrency": "USD"
+}, {
+	"DocumentNumber": "0611343361",
+	"POItem": "00010",
+	"Quantity": "2",
+	"NetPrice": "29.99",
+	"QuantityUnit": "EA",
+	"DeliveryDate": "/Date(1425423600000)/",
+	"ShortText": "Audio/Video Cable Kit - 4m",
+	"PriceCurrency": "USD"
+}, {
+	"DocumentNumber": "0611343361",
+	"POItem": "00020",
+	"Quantity": "3",
+	"NetPrice": "29.00",
+	"QuantityUnit": "EA",
+	"DeliveryDate": "/Date(1425423600000)/",
+	"ShortText": "Smart Internet Antivirus",
+	"PriceCurrency": "USD"
+}, {
+	"DocumentNumber": "0611343372",
+	"POItem": "00010",
+	"Quantity": "1",
+	"NetPrice": "79.00",
+	"QuantityUnit": "EA",
+	"DeliveryDate": "/Date(1425423600000)/",
+	"ShortText": "Travel Adapter",
+	"PriceCurrency": "USD"
+}, {
+	"DocumentNumber": "0611343377",
+	"POItem": "00010",
+	"ShortText": "First Item",
+	"NetPrice": 23.34,
+	"PriceCurrency": "EUR",
+	"Quantity": 100,
+	"QuantityUnit": "PCS",
+	"DeliveryDate": "/Date(1465336800000)/"
+}, {
+	"DocumentNumber": "0611343377",
+	"POItem": "00020",
+	"ShortText": "Second Item",
+	"NetPrice": 12.1,
+	"PriceCurrency": "EUR",
+	"Quantity": 1,
+	"QuantityUnit": "KG",
+	"DeliveryDate": "/Date(1461880800000)/"
+}, {
+	"DocumentNumber": "0611343377",
+	"POItem": "00030",
+	"ShortText": "Drink Water Bottles",
+	"NetPrice": 14.89,
+	"PriceCurrency": "EUR",
+	"Quantity": 10,
+	"QuantityUnit": "L",
+	"DeliveryDate": "/Date(1462917600000)/"
+}]
